@@ -21,7 +21,7 @@ RPCUSER=$(tr -cd '[:alnum:]' < /dev/urandom | fold -w10 | head -n1)
 RPCPASSWORD=$(tr -cd '[:alnum:]' < /dev/urandom | fold -w22 | head -n1)
 COIN_CLI=labx-cli
 COIN_REPO=(
-  [0]='https://downloads.stakinglab.io/wallets/Stakinglab/stakinglab.zip'
+  [0]='https://github.com/StakingLab/stakinglab/releases/download/v1.0.1/stakinglab-1.0.1-x86_64-linux-gnu.tar.gz'
 )
 NODES=no
 OTHER_REPO=no
@@ -125,7 +125,7 @@ function prepareNode(){
 
   #CHECK EXISTENCE OF COIN
   if [ -n "$(pidof $COIN_DAEMON)" ] || [ -e "$COIN_DAEMON" ] ; then
-    echo -e "${RED}Stakinglab is already installed.${NC}"
+    echo -e "${RED}Stakinglab ifs already installed.${NC}"
     exit 1
   fi
   echo -e "Prepare the system to install ${GREEN}Stakinglab${NC} master node."
@@ -207,7 +207,7 @@ function downloadNode(){
   # SET PRIVILEGES
   chmod 755 *
 
-  mv * $C_PATH
+  mv stakinglab-1.0.1/bin/* $C_PATH
   handleResult "Moving of files was completed" "Error while moving files!"
 
   cd -
