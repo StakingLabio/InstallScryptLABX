@@ -207,7 +207,7 @@ function downloadNode(){
   # SET PRIVILEGES
   chmod 755 *
 
-  mv stakinglab-1.0.1/bin/* $C_PATH
+  mv * $C_PATH
   handleResult "Moving of files was completed" "Error while moving files!"
 
   cd -
